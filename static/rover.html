@@ -1,0 +1,161 @@
+<html>
+<head> 
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title> Rokenbok Controller</title>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8  offset-lg-2">
+			<h3 class="mt-5">Live Video Feed</h3>
+			<img src="/video_feed" width="100%">
+		</div>
+	</div>
+	
+<br>
+
+<li>Control the vehicle with WASD
+<li>Control the up and down with Q and E
+<li>Control the sweeper (vehicle number 4) with 2 (in) and 3 (out)
+<li>Press T to cycle through the numbers
+<li>I copied alot of code from <a href="https://github.com/simonvc/rover-wasd-server" target="_blank">Github</a>
+<br/>
+<script src="/static/keypress-2.1.5.min.js"></script>
+<script src="/static/jquery-3.6.0.min.js"></script>
+
+<script language='JavaScript'>
+	
+$.ajaxSetup({'cache' : false});
+
+var listener = new window.keypress.Listener();
+my_scope = this;
+
+var my_combos = listener.register_many([
+	{
+		"keys"          : "t",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("select");
+			$.ajax("/select");
+		},
+		"this"          : my_scope
+	},
+	{
+		"keys"          : "w",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("w");
+			$.ajax("/w");
+		},
+		"on_keyup"      : function(e) {
+			console.log("stop");
+			$.ajax("/stop");
+		},
+		"this"          : my_scope
+	},
+	{
+		"keys"          : "a",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("a");
+			$.ajax("/a");
+		},
+		"on_keyup"      : function(e) {
+			console.log("stop");
+			$.ajax("/stop");
+		},
+		"this"          : my_scope
+	},
+	{
+		"keys"          : "s",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("s");
+			$.ajax("/s");
+		},
+		"on_keyup"      : function(e) {
+			console.log("stop");
+			$.ajax("/stop");
+		},
+		"this"          : my_scope
+	},
+	{
+		"keys"          : "d",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("d");
+			$.ajax("/d");
+		},
+		"on_keyup"      : function(e) {
+			console.log("stop");
+			$.ajax("/stop");
+		},
+		"this"          : my_scope
+	},
+	{
+		"keys"          : "e",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("e");
+			$.ajax("/e");
+		},
+		"on_keyup"      : function(e) {
+			console.log("stop");
+			$.ajax("/stop");
+		},
+		"this"          : my_scope
+	},
+	{
+		"keys"          : "q",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("q");
+			$.ajax("/q");
+		},
+		"on_keyup"      : function(e) {
+			console.log("stop");
+			$.ajax("/stop");
+		},
+		"this"          : my_scope
+	},
+	{
+		"keys"          : "2",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("down");
+			$.ajax("/down");
+		},
+		"on_keyup"      : function(e) {
+			console.log("stop");
+			$.ajax("/stop");
+		},
+		"this"          : my_scope
+	},
+	{
+		"keys"          : "3",
+		"is_exclusive"  : false,
+		"on_keydown"    : function() {
+			console.log("up");
+			$.ajax("/up");
+		},
+		"on_keyup"      : function(e) {
+			console.log("stop");
+			$.ajax("/stop");
+		},
+		"this"          : my_scope
+	},
+]);
+
+
+</script>
+
+</body>
+</html>
